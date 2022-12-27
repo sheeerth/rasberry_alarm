@@ -1,12 +1,17 @@
 class Alarm:
+    alarm_armament = False
+
     def __init__(self, time):
         self.time = time
 
-    def alarm_armament(self):
-        print("Alarm armament")
-
     def alarm_deactivation(self):
-        print("Alarm deactivated")
+        self.alarm_armament = False
 
     def alarm_activation(self):
-        print("Alarm activated")
+        self.alarm_armament = True
+
+    def is_alarm_on(self):
+        return self.alarm_armament == True
+
+    def is_alarm_off(self):
+        return self.alarm_armament == False

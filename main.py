@@ -16,7 +16,7 @@ def main():
     while True:
         if alarm.is_alarm_on() & user_interface.motion_detected():
             image = '/home/lechu/Desktop/image.jpg'
-            # camera.capture(image)
+            user_interface.camera.capture(image)
             notifier.sendmail(sendTo, emailSubject, emailContent, image)
             user_interface.buzzer_alarm_on()
             user_interface.led_alarm_on()
@@ -26,10 +26,12 @@ def main():
             user_interface.display_message('Alarm wyłączony')
             user_interface.buzzer_alarm_off()
             user_interface.led_alarm_disarmed()
+            alarm.deactivate_alarm()
 
         if alarm.is_alarm_off() & user_interface.pressed_activate_button():
             user_interface.display_message('Alarm zazbrojony')
             user_interface.led_alarm_armed()
+            alarm.activate_alarm()
 
 
 main()
