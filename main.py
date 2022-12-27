@@ -22,18 +22,18 @@ def main():
             notifier.sendmail(sendTo, emailSubject, emailContent, image)
             user_interface.buzzer_alarm_on()
             user_interface.led_alarm_on()
-            user_interface.display_message('Intruz!')
+            user_interface.display_message("Intruz!")
 
         if alarm.is_alarm_on() & user_interface.pressed_deactivate_button():
-            user_interface.display_message('Alarm wyłączony')
+            user_interface.display_message("Alarm wyłączony")
             user_interface.buzzer_alarm_off()
             user_interface.led_alarm_disarmed()
-            alarm.deactivate_alarm()
+            alarm.alarm_deactivation()
 
         if alarm.is_alarm_off() & user_interface.pressed_activate_button():
-            user_interface.display_message('Alarm zazbrojony')
+            user_interface.display_message("Alarm zazbrojony")
             user_interface.led_alarm_armed()
-            alarm.activate_alarm()
+            alarm.alarm_activation()
 
 
 main()

@@ -54,7 +54,6 @@ class UserInterface:
 
     def display_message(self, message):
         self.lcd.clear()
-        self.lcd.clear()
         self.lcd.message(message)
 
     def display_welcome_message(self):

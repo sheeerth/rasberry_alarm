@@ -13,7 +13,7 @@ class Emailer:
         emailData = MIMEMultipart()
         emailData['Subject'] = subject
         emailData['To'] = recipient
-        emailData['From'] = GMAIL_USERNAME
+        emailData['From'] = self.GMAIL_USERNAME
 
         #Attach our text data
         emailData.attach(MIMEText(content))
@@ -24,14 +24,14 @@ class Emailer:
         emailData.attach(imageData)
 
         #Connect to Gmail Server
-        session = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        session = smtplib.SMTP(self.SMTP_SERVER, self.SMTP_PORT)
         session.ehlo()
         session.starttls()
         session.ehlo()
 
         #Login to Gmail
-        session.login(GMAIL_USERNAME, GMAIL_PASSWORD)
+        session.login(self.GMAIL_USERNAME, self.GMAIL_PASSWORD)
 
         #Send Email & Exit
-        session.sendmail(GMAIL_USERNAME, recipient, emailData.as_string())
+        session.sendmail(self.GMAIL_USERNAME, recipient, emailData.as_string())
         session.quit
