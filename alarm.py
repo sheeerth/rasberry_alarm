@@ -1,9 +1,6 @@
 class Alarm:
     alarm_armament = False
 
-    def __init__(self, time):
-        self.time = time
-
     def alarm_deactivation(self):
         self.alarm_armament = False
 

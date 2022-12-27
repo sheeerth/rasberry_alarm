@@ -13,6 +13,8 @@ def main():
     emailSubject = 'Alarm zazbrojony'
     emailContent = 'To jest testowy mail ' + time.ctime()
 
+    user_interface.display_welcome_message()
+
     while True:
         if alarm.is_alarm_on() & user_interface.motion_detected():
             image = '/home/lechu/Desktop/image.jpg'

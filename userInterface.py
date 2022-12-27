@@ -14,9 +14,8 @@ class UserInterface:
     lcd_rows = 2
 
 
-    def __init__(self, game):
+    def __init__(self):
         self.led_orange = None
-        self.game = game
         self.camera_init()
         self.pir_init()
         self.buzzer_init()
